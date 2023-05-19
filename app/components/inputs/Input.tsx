@@ -1,7 +1,8 @@
 'use client'
 
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { BiDollar } from 'react-icons/bi';
+// import { BiDollar } from 'react-icons/bi';
+import { TbCurrencyNaira } from 'react-icons/tb';
 
 type InputProps = {
     id: string,
@@ -27,7 +28,7 @@ const Input: React.FC<InputProps> = ({
     return (
         <div className='w-full relative'>
             {formatPrice && (
-                <BiDollar size={24} className='text-neutral-700 absolute top-5 left-2' />
+                <TbCurrencyNaira size={24} className='text-neutral-700 absolute top-5 left-2' />
             )}
             <input
                 id={id}
