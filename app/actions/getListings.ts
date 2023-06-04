@@ -4,7 +4,7 @@ type IListingsParams = {
 
 }
 
-const getListing = async (params?: IListingsParams) => {
+const getListings = async (params?: IListingsParams) => {
 
     let queryParams: any = {}
 
@@ -21,11 +21,12 @@ const getListing = async (params?: IListingsParams) => {
         const safeListings = listings.map(listing => ({
             ...listing,
             createdAt: listing.createdAt.toISOString()
-        }))
-        return safeListings
+        }));
+        
+        return safeListings;
     } catch(error: any) {
         throw new Error(error);
     }
 }
 
-export default getListing
+export default getListings

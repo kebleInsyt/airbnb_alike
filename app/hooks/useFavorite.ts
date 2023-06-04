@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -29,17 +30,17 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
     try{
       let request;
       if(hasFavorited) {
-        await axios.delete(`/api/favorites/${listingId}`);
+        await axios.delete(`/api/favorites/${listingId}`)
         toast.success('Removved from Favourites')
       } else {
         await axios.post(`/api/favorites/${listingId}`);
         toast.success('Added to Favourites')
       }
-      
+     
       router.refresh();
     } catch(err) {
       toast.error('Something went wrong');
-    }
+    } 
   }, [hasFavorited, currentUser, loginModal, listingId, router]);
 
   return {
