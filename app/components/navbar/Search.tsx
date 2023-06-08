@@ -1,10 +1,17 @@
 'use client'
 
-import { BiSearch} from 'react-icons/bi'
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { differenceInDays } from 'date-fns';
+
+import useSearchModal from '@/app/hooks/useSearchModal';
+import useCountries from '@/app/hooks/useCountries';
 
 const Search = () => {
+  const searchModal = useSearchModal();
   return (
-    <div className='border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer ml-3'>
+    <div onClick={searchModal.onOpen} className='border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer ml-3'>
       <div className='flex flex-row items-center justify-between'>
         <div className='text-sm font-semibold px-6'>Any Where</div>
         <div className="hidden text-sm sm:block font-semibold px-6 border-x-[1px] flex-1 text-center">Any Week</div>

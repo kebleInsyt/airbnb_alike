@@ -70,11 +70,11 @@ export default function ListingClient({
                 endDate: dateRange.endDate,
                 listingId: listing?.id
             });
-            toast.success('Booking is reserved');
+            toast.success('Listing is reserved');
             setDateRange(initialDateRange);
-            router.refresh();
+            router.push('/trips');
         } catch(error) {
-            toast.error('Booking was not successful');
+            toast.error('something went wrong');
         }finally {
             setIsLoading(false);
         }

@@ -1,15 +1,12 @@
 import prisma from '@/app/libs/prismadb';
 
-type IListingsParams = {
-
+export interface IListingsParams {
+    userId?: string
 }
 
-const getListings = async (params?: IListingsParams) => {
-
-    let queryParams: any = {}
-
+const getListings = async (params: IListingsParams) => {
     try {
-
+        let queryParams: any = {}
         //retrieve listings from mongo db using prisma
         const listings = await prisma.listing.findMany({
             where: queryParams,

@@ -2,8 +2,7 @@
 
 import useCountries from '@/app/hooks/useCountries'
 
-import { SafeUser, SafeListing } from '@/app/types'
-import { Reservation } from '@prisma/client'
+import { SafeUser, SafeListing, SafeReservation } from '@/app/types'
 import Image from 'next/image'
 import HeartButton from '../HeartButton'
 
@@ -16,7 +15,7 @@ import Button from '../Button'
 
 type ListingCardProps = {
     data: SafeListing
-    reservation?: Reservation
+    reservation?: SafeReservation
     currentUser?: SafeUser | null
     disabled?: boolean
     actionLabel?: string
@@ -49,7 +48,7 @@ const ListingCard = ({ data, reservation, currentUser, disabled, actionLabel, ac
       const start = new Date(reservation.startDate);
       const end = new Date(reservation.endDate);
 
-      return `${format(start, 'pp')} - ${format(end, 'pp')}`;
+      return `${format(start, 'PP')} - ${format(end, 'PP')}`;
 
     }, [reservation])
       
@@ -72,7 +71,7 @@ const ListingCard = ({ data, reservation, currentUser, disabled, actionLabel, ac
         </div> 
         <div className='font-semibold text-lg'>
           {location?.region}, {location?.label}
-        </div>
+        </div> 
         <div className='font-light text-neutral-500'>
           {reservationDate || data.category}
         </div>
