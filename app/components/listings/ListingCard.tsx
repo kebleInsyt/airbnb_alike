@@ -40,7 +40,7 @@ const ListingCard = ({ data, reservation, currentUser, disabled, actionLabel, ac
       if(reservation) return reservation.totalPrice;
 
       return data.price;
-    }, [reservation])
+    }, [reservation, data.price])
       
     const reservationDate = useMemo(() => {
       if(!reservation) return null;
